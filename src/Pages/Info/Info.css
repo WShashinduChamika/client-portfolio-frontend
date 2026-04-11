@@ -145,6 +145,7 @@
   object-position: center top;
   transform: scale(1.02);
   transition: transform 0.35s ease;
+  cursor: pointer;
 }
 
 .window-outline:hover .MeVideo {
@@ -216,6 +217,38 @@
   ); /* Adjust gradient colors as needed */
   z-index: 1; /* Places the gradient above the image */
   pointer-events: none; /* Allow clicks to pass through to video controls */
+}
+
+.MePlayToggle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.MePlayToggle:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+  background: rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.MePlayToggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.75);
+  outline-offset: 2px;
 }
 
 
@@ -590,5 +623,11 @@
     width: 36px;
     height: 36px;
     font-size: 16px;
+  }
+
+  .MePlayToggle {
+    width: 58px;
+    height: 58px;
+    font-size: 22px;
   }
 }

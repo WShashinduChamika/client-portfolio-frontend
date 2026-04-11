@@ -12,13 +12,15 @@ import Atliasan from "../../Assets/Atliasan.png";
 import Jira from "../../Assets/Jira.png";
 import MeVideo from "../../Assets/Info_Video/Me_Video.mp4";
 import Frame42 from "../../Assets/Me2.png";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../Components/Navbar/Navbar";
 
 function Info() {
 
   const [currentChapter, setCurrentChapter] = useState(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef(null);
 
   // Story chapters data
   const storyChapters = [
@@ -71,6 +73,17 @@ function Info() {
   useEffect(() => {
     document.title = "Info";
   }, []);
+
+  const toggleVideoPlayback = () => {
+    if (!videoRef.current) return;
+
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+    } else {
+      videoRef.current.pause();
+    }
+  };
+
   return (
     <div>
       <div className="section-nav">
@@ -134,16 +147,27 @@ function Info() {
         <div className="window-outline">
           <div className="Meholder">
             <video
+              ref={videoRef}
               className="MeVideo"
-              controls
               loop
-              muted
               playsInline
               preload="metadata"
               aria-label="Video portrait of Minuri"
+              onPlay={() => setIsVideoPlaying(true)}
+              onPause={() => setIsVideoPlaying(false)}
+              onClick={toggleVideoPlayback}
             >
               <source src={MeVideo} type="video/mp4" />
             </video>
+
+            <button
+              type="button"
+              className="MePlayToggle"
+              onClick={toggleVideoPlayback}
+              aria-label={isVideoPlaying ? "Pause video" : "Play video"}
+            >
+              {isVideoPlaying ? "❚❚" : "▶"}
+            </button>
           </div>
         </div>
         {/* Decorative box removed from Aboutpart; moved to story section below */}
