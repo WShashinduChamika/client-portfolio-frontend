@@ -384,12 +384,21 @@ a {
   .Navbar {
     margin: 28px 12px;
     justify-content: flex-start;
-    gap: 0px;
+    gap: 5px;
+  }
+
+  .nav-pill-wrapper .nav-pill {
+    width: calc(var(--nav-count, 3) * 94px);
+  }
+
+  .pil2 {
+    width: 50px;
+    height: 50px;
   }
 
   .logo-block {
     width: auto;
-    padding-left: 6px;
+    padding-left: 12px;
   }
 
   .nav-pill-wrapper {
