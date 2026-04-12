@@ -1390,7 +1390,11 @@ tbody td {
 
 /* Small mobile */
 @media (max-width: 480px) {
-  .page-wrapper { padding: 0 12px; }
+  .page-wrapper { padding: 0 0px; }
+
+  .pagecontent {
+    padding-top: 108px;
+  }
 
   .services-section {
     padding: 20px 0px;

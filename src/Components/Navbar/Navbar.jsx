@@ -39,7 +39,7 @@ function Navbar() {
   return (
     <div className="section-nav">
       <div className="Navbar">
-        <div className="logo-block Navbarfix">
+        <div className="logo-block Navbarfix"> 
           <img src={Logo} className="logomark" alt="Logo" />
           <div className="LogoText">
             <div className="text-logo">Minuri Senara</div>
